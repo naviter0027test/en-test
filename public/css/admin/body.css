@@ -55,13 +55,17 @@ body {
 
 }
 
-.content .contentForm1 span {
+.content .contentForm1 div label {
     display: inline-block;
-    width: 200px;
+    padding: 0px 25px 0px 10px;
+}
+
+.content .contentForm1 div textarea {
+    width: 95%;
 }
 
 .content .contentForm1 button {
-    margin-top: 30px;
+    margin: 30px 0px 0px 15px;
     padding: 10px 25px 10px 25px;
 
     color: white;
@@ -73,4 +77,29 @@ body {
 
 .content .contentForm1 button:hover {
     background: #429cbd;
+}
+
+.content .addItem {
+    margin: 15px;
+    text-decoration: none;
+}
+
+.content .contentTable1 {
+    margin: 15px;
+    width: 95%;
+}
+
+.content .contentTable1 a {
+    text-decoration: none;
+}
+
+.content .pagination {
+    margin: 15px;
+    width: 95%;
+
+    text-align: center;
+}
+
+.content .contentInfo1 {
+    padding: 10px;
 }

@@ -12,7 +12,7 @@
         <div class="header">
             <a href="/admin/setting" class="clicked">管理者設定</a>
             <a href="/admin/setting/exam">應試相關設定</a>
-            <a href="/admin/questions">題庫</a>
+            <a href="/admin/questions">題庫相關</a>
             <a href="/admin/result">應試成績相關</a>
             <a href="/admin/setting/info">相關說明</a>
             <a href="/admin/logout">登出</a>
@@ -20,7 +20,10 @@
         <div class="content">
             <h3><i class="glyphicon glyphicon-globe" ></i> 管理者設定</h3>
             <form class="contentForm1" action="./">
-                <p><span>管理者密碼</span><input type="password" /></p>
+                <div>
+                    <span class="col-xs-3">管理者密碼</span>
+                    <input type="password" class="col-xs-8"/>
+                </div>
                 <button>儲存</button>
             </form>
         </div>
