@@ -1,0 +1,48 @@
+.loginForm {
+    display: inline-block;
+    margin: 100px 0 0 33%;
+    width: 33%;
+
+    background: white;
+}
+
+.loginForm h3 {
+    margin: 0 0 60px 0;
+    padding: 5px;
+
+    background: #d9ebf2;
+}
+
+.loginForm h3 i {
+    top: 3px;
+}
+
+.loginForm h5 {
+    margin: 0 0 8px 20px;
+}
+
+.loginForm p {
+    margin: 0 20px 30px 20px;
+}
+
+.loginForm .loginBtnP {
+    text-align: center;
+}
+
+.loginForm input {
+    width: 100%;
+}
+
+.loginForm button {
+    padding: 10px 25px 10px 25px;
+
+    color: white;
+    background: #2e6d84;
+    border: 0px solid transparent;
+    -webkit-transition: background 0.5s; /* Safari prior 6.1 */
+    transition: background 0.5s;
+}
+
+.loginForm button:hover {
+    background: #429cbd;
+}
