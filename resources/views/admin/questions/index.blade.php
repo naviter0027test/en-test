@@ -176,7 +176,7 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="pagination">
+            <div class="pagination paginationCenter">
                 <label>1</label>
                 <a href="#">2</a>
                 <a href="#">3</a>
@@ -184,5 +184,4 @@
         </div>
     </body>
     <script src="/lib/jquery-2.1.4.min.js"></script>
-    <script src="/js/admin/login.js"></script>
 </html>
