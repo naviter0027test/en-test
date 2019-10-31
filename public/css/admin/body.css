@@ -55,6 +55,10 @@ body {
 
 }
 
+.content .contentForm1 > div {
+    margin-top: 15px;
+}
+
 .content .contentForm1 div label {
     display: inline-block;
     padding: 0px 25px 0px 10px;
@@ -62,6 +66,11 @@ body {
 
 .content .contentForm1 div textarea {
     width: 95%;
+    margin-bottom: 20px;
+}
+
+.content .contentForm1 .correctItemSet {
+    padding: 0px 15px 0px 15px;
 }
 
 .content .contentForm1 button {
@@ -132,6 +141,15 @@ body {
 .content .contentTable1 {
     margin: 15px;
     width: 95%;
+}
+
+.content .contentTable1 thead {
+    color: white;
+    background: #2e6d84;
+}
+
+.content .contentTable1 td {
+    padding: 5px;
 }
 
 .content .contentTable1 a {
