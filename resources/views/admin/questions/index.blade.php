@@ -19,7 +19,7 @@
         </div>
         <div class="content">
             <h3><i class="glyphicon glyphicon-globe" ></i> 題庫相關</h3>
-            <a class="addItem" href="/admin/questions/add">
+            <a class="addItem" href="/admin/questions/create">
                 <i class="glyphicon glyphicon-plus" ></i>
                 新增題目
             </a>

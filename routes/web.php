@@ -35,6 +35,10 @@ Route::get('/admin/questions', function() {
     return view('admin.questions.index');
 });
 
+Route::get('/admin/questions/create', function() {
+    return view('admin.questions.create');
+});
+
 Route::get('/admin/result', function() {
     return view('admin.result.index');
 });
