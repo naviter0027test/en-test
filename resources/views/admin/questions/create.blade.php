@@ -24,15 +24,16 @@
                 <label class="col-xs-3"><input type="radio" name="typeChoose" value="1" />筆試</label>
                 <label class="col-xs-3"><input type="radio" name="typeChoose" value="2" />英聽</label>
             </div>
-            <form class="contentForm1 type1">
+            <form method="post" action="/admin/questions/create" class="contentForm1 type1">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <input type="hidden" name="type" value="1" />
                 <div class="col-xs-12">
                     <span class="col-xs-12">試題內容</span>
-                    <textarea></textarea>
+                    <textarea name="content"></textarea>
                 </div>
                 <div class="col-xs-12">
                     <span class="col-xs-3">選項數量</span>
-                    <select class="col-xs-1">
+                    <select name="howMany" class="correctItemSet">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -42,27 +43,27 @@
                 </div>
                 <div class="col-xs-12">
                     <span class="col-xs-3">選項A答案</span>
-                    <input type="text" class="col-xs-8" />
+                    <input type="text" name="a" class="col-xs-8" />
                 </div>
                 <div class="col-xs-12">
                     <span class="col-xs-3">選項B答案</span>
-                    <input type="text" class="col-xs-8" />
+                    <input type="text" name="b" class="col-xs-8" />
                 </div>
                 <div class="col-xs-12">
                     <span class="col-xs-3">選項C答案</span>
-                    <input type="text" class="col-xs-8" />
+                    <input type="text" name="c" class="col-xs-8" />
                 </div>
                 <div class="col-xs-12">
                     <span class="col-xs-3">選項D答案</span>
-                    <input type="text" class="col-xs-8" />
+                    <input type="text" name="d" class="col-xs-8" />
                 </div>
                 <div class="col-xs-12">
                     <span class="col-xs-3">選項E答案</span>
-                    <input type="text" class="col-xs-8" />
+                    <input type="text" name="e" class="col-xs-8" />
                 </div>
                 <div class="col-xs-12">
                     <span class="col-xs-3">正確答案</span>
-                    <select class="correctItemSet">
+                    <select name="ans" class="correctItemSet">
                         <option value="A">A</option>
                         <option value="B">B</option>
                         <option value="C">C</option>
@@ -72,15 +73,15 @@
                 </div>
                 <button>儲存</button>
             </form>
-            <form class="contentForm1 type2">
+            <form method="post" action="/admin/questions/create" class="contentForm1 type2">
                 <input type="hidden" name="type" value="2" />
                 <div class="col-xs-12">
                     <span class="col-xs-12">試題內容</span>
-                    <input type="file" />
+                    <input type="file" name="path" />
                 </div>
                 <div class="col-xs-12">
                     <span class="col-xs-3">選項數量</span>
-                    <select class="col-xs-1">
+                    <select name="howMany" class="correctItemSet">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -90,7 +91,7 @@
                 </div>
                 <div class="col-xs-12">
                     <span class="col-xs-3">正確答案</span>
-                    <select class="correctItemSet">
+                    <select name="ans" class="correctItemSet">
                         <option value="A">A</option>
                         <option value="B">B</option>
                         <option value="C">C</option>

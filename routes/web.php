@@ -31,13 +31,10 @@ Route::get('/admin/setting/info', function() {
     return view('admin.setting.info');
 });
 
-Route::get('/admin/questions', function() {
-    return view('admin.questions.index');
-});
+Route::get('/admin/questions', 'Admin\QuestionController@lists');
 
-Route::get('/admin/questions/create', function() {
-    return view('admin.questions.create');
-});
+Route::get('/admin/questions/create', 'Admin\QuestionController@createPage');
+Route::post('/admin/questions/create', 'Admin\QuestionController@create');
 
 Route::get('/admin/result', function() {
     return view('admin.result.index');
