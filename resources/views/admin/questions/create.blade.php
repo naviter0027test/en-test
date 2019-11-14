@@ -73,7 +73,8 @@
                 </div>
                 <button>儲存</button>
             </form>
-            <form method="post" action="/admin/questions/create" class="contentForm1 type2">
+            <form method="post" action="/admin/questions/create" enctype="multipart/form-data" class="contentForm1 type2">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <input type="hidden" name="type" value="2" />
                 <div class="col-xs-12">
                     <span class="col-xs-12">試題內容</span>

@@ -11,6 +11,6 @@ class Questions extends Model
     protected $dateFormat = 'U';
 
     public function getDateFormat() {
-        return 'Y-m-d H:i:s.u';
+        return 'Y-m-d H:i:s';
     }
 }

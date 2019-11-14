@@ -34,152 +34,32 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($data as $item)
                     <tr>
-                        <td>1</td>
-                        <td>筆試</td>
-                        <td>2019-12-01 12:34:21</td>
-                        <td>2019-12-02 12:34:21</td>
+                        <td>{{ $item['id'] }}</td>
+                        <td>{{ $item['typeShow'] }}</td>
+                        <td>{{ $item['created_at'] }}</td>
+                        <td>{{ $item['updated_at'] }}</td>
                         <td>
-                            <a href="/admin/questions/edit">
+                            <a href="/admin/questions/edit/{{ $item['id'] }}">
                                 <i class="glyphicon glyphicon-file" ></i>
                             </a>
-                            <a href="/admin/questions/edit">
+                            <a href="/admin/questions/del/{{ $item['id'] }}">
                                 <i class="glyphicon glyphicon-remove" ></i>
                             </a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>筆試</td>
-                        <td>2019-12-01 12:34:21</td>
-                        <td>2019-12-02 12:34:21</td>
-                        <td>
-                            <a href="/admin/questions/edit">
-                                <i class="glyphicon glyphicon-file" ></i>
-                            </a>
-                            <a href="/admin/questions/edit">
-                                <i class="glyphicon glyphicon-remove" ></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>筆試</td>
-                        <td>2019-12-01 12:34:21</td>
-                        <td>2019-12-02 12:34:21</td>
-                        <td>
-                            <a href="/admin/questions/edit">
-                                <i class="glyphicon glyphicon-file" ></i>
-                            </a>
-                            <a href="/admin/questions/edit">
-                                <i class="glyphicon glyphicon-remove" ></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>聽力</td>
-                        <td>2019-12-01 12:34:21</td>
-                        <td>2019-12-02 12:34:21</td>
-                        <td>
-                            <a href="/admin/questions/edit">
-                                <i class="glyphicon glyphicon-file" ></i>
-                            </a>
-                            <a href="/admin/questions/edit">
-                                <i class="glyphicon glyphicon-remove" ></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>聽力</td>
-                        <td>2019-12-01 12:34:21</td>
-                        <td>2019-12-02 12:34:21</td>
-                        <td>
-                            <a href="/admin/questions/edit">
-                                <i class="glyphicon glyphicon-file" ></i>
-                            </a>
-                            <a href="/admin/questions/edit">
-                                <i class="glyphicon glyphicon-remove" ></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>聽力</td>
-                        <td>2019-12-01 12:34:21</td>
-                        <td>2019-12-02 12:34:21</td>
-                        <td>
-                            <a href="/admin/questions/edit">
-                                <i class="glyphicon glyphicon-file" ></i>
-                            </a>
-                            <a href="/admin/questions/edit">
-                                <i class="glyphicon glyphicon-remove" ></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>聽力</td>
-                        <td>2019-12-01 12:34:21</td>
-                        <td>2019-12-02 12:34:21</td>
-                        <td>
-                            <a href="/admin/questions/edit">
-                                <i class="glyphicon glyphicon-file" ></i>
-                            </a>
-                            <a href="/admin/questions/edit">
-                                <i class="glyphicon glyphicon-remove" ></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>筆試</td>
-                        <td>2019-12-01 12:34:21</td>
-                        <td>2019-12-02 12:34:21</td>
-                        <td>
-                            <a href="/admin/questions/edit">
-                                <i class="glyphicon glyphicon-file" ></i>
-                            </a>
-                            <a href="/admin/questions/edit">
-                                <i class="glyphicon glyphicon-remove" ></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>筆試</td>
-                        <td>2019-12-01 12:34:21</td>
-                        <td>2019-12-02 12:34:21</td>
-                        <td>
-                            <a href="/admin/questions/edit">
-                                <i class="glyphicon glyphicon-file" ></i>
-                            </a>
-                            <a href="/admin/questions/edit">
-                                <i class="glyphicon glyphicon-remove" ></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>筆試</td>
-                        <td>2019-12-01 12:34:21</td>
-                        <td>2019-12-02 12:34:21</td>
-                        <td>
-                            <a href="/admin/questions/edit">
-                                <i class="glyphicon glyphicon-file" ></i>
-                            </a>
-                            <a href="/admin/questions/edit">
-                                <i class="glyphicon glyphicon-remove" ></i>
-                            </a>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
             <div class="pagination paginationCenter">
-                <label>1</label>
-                <a href="#">2</a>
-                <a href="#">3</a>
+            @for($i = 0; $i < ceil($amount / $offset); ++$i)
+                @if(($i+1) == $nowPage)
+                <label>{{ $i+1 }}</label>
+                @elseif(($i+1) != $nowPage)
+                <a href="/admin/questions/?nowPage={{ $i+1 }}">{{ $i+1 }}</a>
+                @endif
+            @endfor
             </div>
         </div>
     </body>
