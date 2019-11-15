@@ -44,7 +44,7 @@
                             <a href="/admin/questions/edit/{{ $item['id'] }}">
                                 <i class="glyphicon glyphicon-file" ></i>
                             </a>
-                            <a href="/admin/questions/del/{{ $item['id'] }}">
+                            <a href="/admin/questions/del/{{ $item['id'] }}" class="remove-trash">
                                 <i class="glyphicon glyphicon-remove" ></i>
                             </a>
                         </td>
@@ -64,4 +64,5 @@
         </div>
     </body>
     <script src="/lib/jquery-2.1.4.min.js"></script>
+    <script src="/js/admin/questions/index.js"></script>
 </html>
