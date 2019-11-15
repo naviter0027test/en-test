@@ -35,6 +35,8 @@ Route::get('/admin/questions', 'Admin\QuestionController@lists');
 
 Route::get('/admin/questions/create', 'Admin\QuestionController@createPage');
 Route::post('/admin/questions/create', 'Admin\QuestionController@create');
+Route::get('/admin/questions/edit/{id}', 'Admin\QuestionController@edit');
+Route::post('/admin/questions/edit/{id}', 'Admin\QuestionController@update');
 Route::get('/admin/questions/del/{id}', 'Admin\QuestionController@del');
 
 Route::get('/admin/result', function() {

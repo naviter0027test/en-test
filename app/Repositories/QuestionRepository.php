@@ -113,6 +113,25 @@ class QuestionRepository
         return Questions::count();
     }
 
+    public function getById($id) {
+        $result = [
+            'result' => true,
+            'msg' => 'success',
+        ];
+        try {
+            $question = Questions::where('id', '=', $id)->first();
+            if(isset($question->id))
+                $result['data'] = $question->toArray();
+            else
+                $result['data'] = [];
+        }
+        catch(Exception $e) {
+            $result['result'] = false;
+            $result['msg'] = $e->getMessage();
+        }
+        return $result;
+    }
+
     public function remove($id) {
         $result = [
             'result' => true,

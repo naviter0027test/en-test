@@ -39,6 +39,9 @@ class QuestionController extends Controller
     }
 
     public function edit(Request $request, $id) {
+        $questionRepository = new QuestionRepository();
+        $result = $questionRepository->getById($id);
+        return view('admin.questions.edit', $result);
     }
 
     public function update(Request $request, $id) {

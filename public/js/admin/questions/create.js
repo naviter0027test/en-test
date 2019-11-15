@@ -6,8 +6,5 @@ $(document).ready(function() {
         else
             $(".type"+ $(this).val()).show();
     });
-    if($("[name=typeChoose]:checked").length == 0) {
-        $(".contentForm1").hide();
-        $(".type1").show();
-    }
+    $("[name=typeChoose][value=1]").trigger('click');
 });
