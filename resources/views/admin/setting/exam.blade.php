@@ -33,12 +33,14 @@
                         <label> <input type="checkbox" /> 員工編號 </label>
                     </div>
                 </div>
+<!--
                 <div>
                     <span class="col-xs-3">開啟成績分析頁面</span>
                     <div class="col-xs-9">
                         <label> <input type="checkbox" /> 開啟成績分析頁面 </label>
                     </div>
                 </div>
+-->
                 <div>
                     <span class="col-xs-3">查詢頁面顯示筆數</span>
                     <div class="col-xs-9">
