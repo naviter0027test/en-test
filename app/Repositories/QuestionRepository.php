@@ -132,6 +132,68 @@ class QuestionRepository
         return $result;
     }
 
+    public function update($id, $params, $file = null) {
+        $result = [
+            'result' => true,
+            'msg' => 'success',
+        ];
+
+        try {
+            $question = Questions::where('id', '=', $id)->first();
+            $question->howMany = $params['howMany'];
+            $question->ans = $params['ans'];
+            $question->content = $question->type == 1 ? $params['content'] : '';
+
+            if($params['type'] == 1)
+                switch($params['howMany']) {
+                case 1:
+                    $question->a = $params['a'];
+                    break;
+                case 2:
+                    $question->a = $params['a'];
+                    $question->b = $params['b'];
+                    break;
+                case 3:
+                    $question->a = $params['a'];
+                    $question->b = $params['b'];
+                    $question->c = $params['c'];
+                    break;
+                case 4:
+                    $question->a = $params['a'];
+                    $question->b = $params['b'];
+                    $question->c = $params['c'];
+                    $question->d = $params['d'];
+                    break;
+                case 5:
+                    $question->a = $params['a'];
+                    $question->b = $params['b'];
+                    $question->c = $params['c'];
+                    $question->d = $params['d'];
+                    $question->e = $params['e'];
+                    break;
+                }
+
+            $question->save();
+
+            switch($params['type']) {
+            case 2:
+                if(is_null($file) == false) {
+                    $ext = $file->getClientOriginalExtension();
+                    $question->title = 'listen_'. $question->id. ".$ext";
+                    $question->save();
+                    $file->move(config('filesystems')['disks']['uploads']['root'], $question->title);
+                }
+                break;
+            }
+        }
+        catch(Exception $e) {
+            $result['result'] = false;
+            $result['msg'] = $e->getMessage();
+        }
+
+        return $result;
+    }
+
     public function remove($id) {
         $result = [
             'result' => true,

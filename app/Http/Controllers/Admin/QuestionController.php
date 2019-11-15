@@ -45,6 +45,16 @@ class QuestionController extends Controller
     }
 
     public function update(Request $request, $id) {
+        $params = $request->all();
+        $file = null;
+        if($request->hasFile('path'))
+            $file = $request->file('path');
+
+        $questionRepository = new QuestionRepository();
+        $result = $questionRepository->update($id, $params, $file);
+        if($result['result']) {
+            return redirect('/admin/questions');
+        }
     }
 
     public function del(Request $request, $id) {
