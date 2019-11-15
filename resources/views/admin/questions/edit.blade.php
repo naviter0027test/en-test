@@ -29,7 +29,8 @@
                 <input type="hidden" name="type" value="1" />
                 <div class="col-xs-12">
                     <span class="col-xs-12">試題內容</span>
-                    <textarea name="content">{{ $data['content'] }}</textarea>
+                    <textarea id="content" name="content">{{ $data['content'] }}</textarea>
+                    <label for="content" class="error col-xs-12"></label>
                 </div>
                 <div class="col-xs-12">
                     <span class="col-xs-3">選項數量</span>
@@ -43,23 +44,28 @@
                 </div>
                 <div class="col-xs-12">
                     <span class="col-xs-3">選項A答案</span>
-                    <input type="text" name="a" value="{{ $data['a'] }}" class="col-xs-8" />
+                    <input type="text" id="a" name="a" value="{{ $data['a'] }}" class="col-xs-8" />
+                    <label for="a" class="error col-xs-12"></label>
                 </div>
                 <div class="col-xs-12">
                     <span class="col-xs-3">選項B答案</span>
-                    <input type="text" name="b" value="{{ $data['b'] }}" class="col-xs-8" />
+                    <input type="text" id="b" name="b" value="{{ $data['b'] }}" class="col-xs-8" />
+                    <label for="b" class="error col-xs-12"></label>
                 </div>
                 <div class="col-xs-12">
                     <span class="col-xs-3">選項C答案</span>
-                    <input type="text" name="c" value="{{ $data['c'] }}" class="col-xs-8" />
+                    <input type="text" id="c" name="c" value="{{ $data['c'] }}" class="col-xs-8" />
+                    <label for="c" class="error col-xs-12"></label>
                 </div>
                 <div class="col-xs-12">
                     <span class="col-xs-3">選項D答案</span>
-                    <input type="text" name="d" value="{{ $data['d'] }}" class="col-xs-8" />
+                    <input type="text" id="d" name="d" value="{{ $data['d'] }}" class="col-xs-8" />
+                    <label for="d" class="error col-xs-12"></label>
                 </div>
                 <div class="col-xs-12">
                     <span class="col-xs-3">選項E答案</span>
-                    <input type="text" name="e" value="{{ $data['e'] }}" class="col-xs-8" />
+                    <input type="text" id="e" name="e" value="{{ $data['e'] }}" class="col-xs-8" />
+                    <label for="e" class="error col-xs-12"></label>
                 </div>
                 <div class="col-xs-12">
                     <span class="col-xs-3">正確答案</span>
@@ -108,5 +114,8 @@
         </div>
     </body>
     <script src="/lib/jquery-2.1.4.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/lib/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="/lib/jquery-validation/dist/localization/messages_zh_TW.min.js"></script>
     <script src="/js/admin/questions/edit.js"></script>
 </html>

@@ -55,6 +55,10 @@ body {
 
 }
 
+.content .contentForm1 .error {
+    color: red;
+}
+
 .content .contentForm1 > div {
     margin-top: 15px;
 }
@@ -66,7 +70,12 @@ body {
 
 .content .contentForm1 div textarea {
     width: 95%;
-    margin-bottom: 20px;
+    margin: 10px 0px 20px 0px;
+    padding: 5px;
+}
+
+.content .contentForm1 div input {
+    padding: 3px;
 }
 
 .content .contentForm1 .correctItemSet {

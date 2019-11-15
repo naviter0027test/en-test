@@ -1,14 +1,4 @@
 $(document).ready(function() {
-    $("[name=typeChoose]").on("change", function() {
-        $(".contentForm1").hide();
-        if($(this).val() == "")
-            $(".type1").show();
-        else
-            $(".type"+ $(this).val()).show();
-
-    });
-    $("[name=typeChoose][value=1]").trigger('click');
-
     var rule1 = {
         'rules': {
             'content': { 'required': true },
@@ -145,17 +135,4 @@ $(document).ready(function() {
         }
     };
     var validator1 = $(".type1").validate(rule1);
-
-    var rule2 = {
-        'rules': {
-            'path': { 'required': true },
-        },
-        'messages': {
-            'path': { 'required': '必填', },
-        },
-        submitHandler: function(form) {
-            form.submit();
-        }
-    };
-    var validator2 = $(".type2").validate(rule2);
 });
