@@ -21,10 +21,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['check.login']], function() 
     Route::post('login', 'Admin\UserController@login');
 
     Route::get('setting', 'Admin\SettingController@index');
+    Route::post('setting', 'Admin\UserController@passUpdate');
 
-    Route::get('setting/exam', function() {
-        return view('admin.setting.exam');
-    });
+    Route::get('setting/exam', 'Admin\SettingController@examInfoPage');
+    Route::post('setting/exam', 'Admin\SettingController@examSavePage');
 
     Route::get('setting/info', function() {
         return view('admin.setting.info');

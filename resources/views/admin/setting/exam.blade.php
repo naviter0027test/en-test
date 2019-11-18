@@ -18,19 +18,21 @@
             <a href="/admin/logout">登出</a>
         </div>
         <div class="content">
+            @if($result == true)
             <h3><i class="glyphicon glyphicon-globe" ></i> 應試相關設定</h3>
-            <form class="contentForm1" action="./">
+            <form action="/admin/setting/exam" method="post" class="contentForm1" action="./">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div>
                     <span class="col-xs-3">應試者必填欄位</span>
                     <div class="col-xs-9">
                         <p>帳號為系統必填欄位</p>
-                        <label> <input type="checkbox" /> 中文姓名 </label>
-                        <label> <input type="checkbox" /> 英文姓名 </label>
-                        <label> <input type="checkbox" /> 出生日期 </label>
-                        <label> <input type="checkbox" /> 聯絡電話 </label>
-                        <label> <input type="checkbox" /> 電子郵件 </label>
-                        <label> <input type="checkbox" /> 部門代號 </label>
-                        <label> <input type="checkbox" /> 員工編號 </label>
+                        <label> <input type="checkbox" name="chNameIsRequire" {{ $data['chNameIsRequire'] == 'Y' ? 'checked' : '' }} /> 中文姓名 </label>
+                        <label> <input type="checkbox" name="enNameIsRequire" {{ $data['enNameIsRequire'] == 'Y' ? 'checked' : '' }} /> 英文姓名 </label>
+                        <label> <input type="checkbox" name="birthdayIsRequire" {{ $data['birthdayIsRequire'] == 'Y' ? 'checked' : '' }} /> 出生日期 </label>
+                        <label> <input type="checkbox" name="telIsRequire" {{ $data['telIsRequire'] == 'Y' ? 'checked' : '' }} /> 聯絡電話 </label>
+                        <label> <input type="checkbox" name="emailIsRequire" {{ $data['emailIsRequire'] == 'Y' ? 'checked' : '' }} /> 電子郵件 </label>
+                        <label> <input type="checkbox" name="departmentIsRequire" {{ $data['departmentIsRequire'] == 'Y' ? 'checked' : '' }} /> 部門代號 </label>
+                        <label> <input type="checkbox" name="staffIsRequire" {{ $data['staffIsRequire'] == 'Y' ? 'checked' : '' }} /> 員工編號 </label>
                     </div>
                 </div>
 <!--
@@ -44,23 +46,26 @@
                 <div>
                     <span class="col-xs-3">查詢頁面顯示筆數</span>
                     <div class="col-xs-9">
-                        <select>
-                            <option>10</option>
-                            <option>20</option>
-                            <option>30</option>
-                            <option>40</option>
-                            <option>50</option>
+                        <select name="perPage">
+                            <option value='10'>10</option>
+                            <option value='20'>20</option>
+                            <option value='30'>30</option>
+                            <option value='40'>40</option>
+                            <option value='50'>50</option>
                         </select>
                     </div>
                 </div>
                 <div>
                     <span class="col-xs-12">請輸入欲呈現的測驗完成頁面的文字內容</span>
                     <div class="col-xs-12">
-                        <textarea></textarea>
+                        <textarea name="finishText">{{ $data['finishText'] }}</textarea>
                     </div>
                 </div>
                 <button>儲存</button>
             </form>
+            @elseif($result == false)
+            {{ $msg }}
+            @endif
         </div>
     </body>
     <script src="/lib/jquery-2.1.4.min.js"></script>
