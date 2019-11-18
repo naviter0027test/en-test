@@ -9,10 +9,11 @@
         <link href='/css/admin/login.css' rel='stylesheet' />
     </head>
     <body>
-        <form class="loginForm" action="/admin/setting">
+        <form class="loginForm" method="post" action="/admin/login">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             <h3><i class="glyphicon glyphicon-globe" ></i> 登入</h3>
             <h5>Password:</h5>
-            <p> <input type="password" name="" /> </p>
+            <p> <input type="password" name="pass" /> </p>
             <p class="loginBtnP"> <button>登入</button> </p>
         </form>
     </body>

@@ -16,7 +16,7 @@ class AddQuestionsTable extends Migration
         Schema::create('Questions', function (Blueprint $table) {
             $table->increments('id');
             $table->tinyInteger('type')
-                ->comment('1:筆試, 2:英聽');
+                ->comment('1:筆試, 2:英聽, 3:英聽(+筆試)');
             $table->string('title');
             $table->mediumText('content')
                 ->comment('問題內容');

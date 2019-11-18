@@ -15,34 +15,31 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin/login', function() {
-    return view('admin.login');
-});
+Route::group(['prefix' => 'admin', 'middleware' => ['check.login']], function() {
 
-Route::get('/admin/setting', function() {
-    return view('admin.setting.index');
-});
+    Route::get('login', 'Admin\UserController@loginPage');
+    Route::post('login', 'Admin\UserController@login');
 
-Route::get('/admin/setting/exam', function() {
-    return view('admin.setting.exam');
-});
+    Route::get('setting', 'Admin\SettingController@index');
 
-Route::get('/admin/setting/info', function() {
-    return view('admin.setting.info');
-});
+    Route::get('setting/exam', function() {
+        return view('admin.setting.exam');
+    });
 
-Route::get('/admin/questions', 'Admin\QuestionController@lists');
+    Route::get('setting/info', function() {
+        return view('admin.setting.info');
+    });
 
-Route::get('/admin/questions/create', 'Admin\QuestionController@createPage');
-Route::post('/admin/questions/create', 'Admin\QuestionController@create');
-Route::get('/admin/questions/edit/{id}', 'Admin\QuestionController@edit');
-Route::post('/admin/questions/edit/{id}', 'Admin\QuestionController@update');
-Route::get('/admin/questions/del/{id}', 'Admin\QuestionController@del');
+    Route::get('questions', 'Admin\QuestionController@lists');
+    Route::get('questions/create', 'Admin\QuestionController@createPage');
+    Route::post('questions/create', 'Admin\QuestionController@create');
+    Route::get('questions/edit/{id}', 'Admin\QuestionController@edit');
+    Route::post('questions/edit/{id}', 'Admin\QuestionController@update');
+    Route::get('questions/del/{id}', 'Admin\QuestionController@del');
 
-Route::get('/admin/result', function() {
-    return view('admin.result.index');
-});
+    Route::get('result', function() {
+        return view('admin.result.index');
+    });
 
-Route::get('/admin/logout', function() {
-    return view('admin.login');
+    Route::get('logout', 'Admin\UserController@logout');
 });
