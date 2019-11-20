@@ -25,6 +25,15 @@ class SettingController extends Controller
 
     public function examSavePage(Request $request) {
         $params = $request->all();
-        return $params;
+        $systemsRepository = new SystemsRepository();
+        $result = [
+            'result' => true,
+            'msg' => 'success',
+        ];
+        $result = $systemsRepository->saveExamInfo($params);
+        if($result['result'] == true) {
+            return redirect('/admin/setting/exam');
+        }
+        return view('admin.setting.exam', $result);
     }
 }

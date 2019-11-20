@@ -19,10 +19,11 @@
         </div>
         <div class="content">
             <h3><i class="glyphicon glyphicon-globe" ></i> 管理者設定</h3>
-            <form class="contentForm1" action="./">
+            <form action="/admin/setting" method="post" class="contentForm1">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div>
                     <span class="col-xs-3">管理者密碼</span>
-                    <input type="password" class="col-xs-8"/>
+                    <input name="pass" type="password" class="col-xs-8"/>
                 </div>
                 <button>儲存</button>
             </form>

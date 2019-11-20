@@ -30,4 +30,14 @@ class UserController extends Controller
         Session::flush();
         return redirect('/admin/login');
     }
+
+    public function passUpdate(Request $request) {
+        $params = $request->all();
+        $systemRepository = new SystemsRepository();
+        $result = $systemRepository->passUpdate($params);
+        if($result['result'] == true) {
+            return redirect('/admin/setting');
+        }
+        return view('admin.setting.index', $result);
+    }
 }
