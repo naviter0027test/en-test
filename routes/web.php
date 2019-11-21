@@ -12,7 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/step1');
+});
+
+Route::get('/step1', function() {
+    return view('front.step1');
+});
+
+Route::get('/step2', function() {
+    return view('front.step2');
+});
+
+Route::get('/step3', function() {
+    return view('front.step3');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['check.login']], function() {

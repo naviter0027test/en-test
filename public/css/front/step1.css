@@ -1,0 +1,30 @@
+.step1Form p {
+    padding: 5px 10px 5px 10px;
+}
+
+.step1Form input {
+    margin-top: 10px;
+    padding: 5px;
+
+    border: 1px solid #74b6ce;
+}
+
+.birthdayLabel {
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.step1Form button {
+    margin: 10px 0px 10px 15px;
+    padding: 10px 25px 10px 25px;
+
+    color: white;
+    background: #2e6d84;
+    border: 0px solid transparent;
+    -webkit-transition: background 0.5s; /* Safari prior 6.1 */
+    transition: background 0.5s;
+}
+
+.step1Form button:hover {
+    background: #429cbd;
+}
