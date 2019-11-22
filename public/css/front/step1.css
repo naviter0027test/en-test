@@ -3,19 +3,17 @@
 }
 
 .step1Form input {
-    margin-top: 10px;
     padding: 5px;
 
     border: 1px solid #74b6ce;
 }
 
 .birthdayLabel {
-    margin-top: 10px;
     padding: 5px;
 }
 
 .step1Form button {
-    margin: 10px 0px 10px 15px;
+    margin: 0px 20px 10px 15px;
     padding: 10px 25px 10px 25px;
 
     color: white;
@@ -27,4 +25,12 @@
 
 .step1Form button:hover {
     background: #429cbd;
+}
+
+.content .nextPanel {
+    text-align: right;
+}
+
+.step1Form .error {
+    color: red;
 }

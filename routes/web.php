@@ -15,9 +15,7 @@ Route::get('/', function () {
     return redirect('/step1');
 });
 
-Route::get('/step1', function() {
-    return view('front.step1');
-});
+Route::get('/step1', 'ExamController@step1');
 
 Route::get('/step2', function() {
     return view('front.step2');
