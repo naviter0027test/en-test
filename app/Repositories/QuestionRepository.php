@@ -209,4 +209,17 @@ class QuestionRepository
         }
         return $result;
     }
+
+    public function getQuestions($params, $howMany = 10) {
+        $type = isset($params['type']) ? $params['type'] : 1;
+        $questions = Questions::where('type', '=', $type)
+            ->orderBy(\DB::raw('rand()'))
+            ->skip(0)
+            ->take($howMany)
+            ->select(['id', 'type', 'title', 'content', 'a', 'b', 'c', 'd', 'e', 'howMany'])
+            ->get();
+        if(count($questions) > 0)
+            return $questions->toArray();
+        return [];
+    }
 }
