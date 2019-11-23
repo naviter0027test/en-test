@@ -25,6 +25,11 @@
     background: #74b6ce;
 }
 
+.content .answerContent a.clicked {
+    color: white;
+    background: #74b6ce;
+}
+
 .content .nextPanel {
     text-align: right;
 }

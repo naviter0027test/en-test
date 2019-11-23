@@ -20,19 +20,19 @@
 <p>像去年是我，陽夜公我，管海身直的背其魚農，家實我，師評寶，求難歷天我；舞一成房告電下海走管……聲器原蘭！</p>
                 </div>
                 <div class="answerContent">
-                    <p class="col-xs-12">
+                    <p class="col-xs-12 type1AnsA">
                         <a href="#" name="answer" answer="A">A</a>
                         <span>a answer show</span>
                     </p>
-                    <p class="col-xs-12">
+                    <p class="col-xs-12 type1AnsB">
                         <a href="#" name="answer" answer="B">B</a>
                         <span>b answer show</span>
                     </p>
-                    <p class="col-xs-12">
+                    <p class="col-xs-12 type1AnsC">
                         <a href="#" name="answer" answer="C">C</a>
                         <span>c answer show</span>
                     </p>
-                    <p class="col-xs-12">
+                    <p class="col-xs-12 type1AnsD">
                         <a href="#" name="answer" answer="D">D</a>
                         <span>d answer show</span>
                     </p>
@@ -46,15 +46,15 @@
                 <h2 class="contentH2">英聽</h2>
                 <div class="questionContent">
                     <audio controls>
-                        <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg" />
+                        <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mp3" />
                     </audio>
                 </div>
                 <div class="answerContent">
                     <p class="col-xs-12">
-                        <a href="#" name="answer" answer="A">A</a>
-                        <a href="#" name="answer" answer="B">B</a>
-                        <a href="#" name="answer" answer="C">C</a>
-                        <a href="#" name="answer" answer="D">D</a>
+                        <a href="#" name="answer type2AnsA" answer="A">A</a>
+                        <a href="#" name="answer type2AnsB" answer="B">B</a>
+                        <a href="#" name="answer type2AnsC" answer="C">C</a>
+                        <a href="#" name="answer type2AnsD" answer="D">D</a>
                     </p>
                 </div>
 
