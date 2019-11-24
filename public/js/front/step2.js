@@ -86,7 +86,6 @@ $(document).ready(function() {
     $.get('/questions', function(data) {
         if(data.result == true) {
             exam = data.data;
-            console.log(exam);
             startExam();
         }
     });
@@ -115,7 +114,29 @@ $(document).ready(function() {
         if(type2Count < 9)
             nextType2Exam();
         else {
-            alert('exam end');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            var postData = {};
+            postData['exam'] = exam;
+            postData['birthday'] = sessionStorage.getItem('birthday');
+            postData['departmentCode'] = sessionStorage.getItem('departmentCode');
+            postData['email'] = sessionStorage.getItem('email');
+            postData['nameCh'] = sessionStorage.getItem('nameCh');
+            postData['nameEn'] = sessionStorage.getItem('nameEn');
+            postData['staffId'] = sessionStorage.getItem('staffId');
+            postData['tel'] = sessionStorage.getItem('tel');
+            $.post('/user-answer', postData, function(userAnsResult) {
+                if(userAnsResult.result == true)
+                    location.href = '/step3';
+                else
+                    alert(userAnsResult.msg);
+            })
+            .fail(function(errorData) {
+                console.log(errorData);
+            });
         }
     });
 });

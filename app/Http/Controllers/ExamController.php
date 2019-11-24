@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\SystemsRepository;
 use App\Repositories\QuestionRepository;
+use App\Repositories\ResultRepository;
 
 class ExamController extends Controller
 {
@@ -27,7 +28,13 @@ class ExamController extends Controller
     }
 
     public function step3(Request $request) {
-        return view('front.step3');
+        $systemsRepository = new SystemsRepository();
+        $result = [
+            'result' => true,
+            'msg' => 'success',
+        ];
+        $result = $systemsRepository->getExamInfo();
+        return view('front.step3', $result);
     }
 
     public function getQuestions(Request $request) {
@@ -47,6 +54,18 @@ class ExamController extends Controller
             $result['result'] = false;
             $result['msg'] = $e->getMessage();
         }
+        return $result;
+    }
+
+    public function userAnswer(Request $request) {
+        $resultRepository = new ResultRepository();
+        $result = [
+            'result' => true,
+            'msg' => 'success',
+        ];
+        $params = $request->all();
+        $result['params'] = $params;
+        $result = $resultRepository->create($params);
         return $result;
     }
 }

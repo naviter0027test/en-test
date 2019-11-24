@@ -20,6 +20,7 @@ Route::get('/step1', 'ExamController@step1');
 Route::get('/step2', 'ExamController@step2');
 Route::get('/questions', 'ExamController@getQuestions');
 
+Route::post('/user-answer', 'ExamController@userAnswer');
 Route::get('/step3', 'ExamController@step3');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['check.login']], function() {
