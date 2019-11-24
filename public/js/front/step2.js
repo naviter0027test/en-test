@@ -63,6 +63,8 @@ $(document).ready(function() {
         type2Count += 1;
         var fileName = "/uploads/" + exam['type2'][type2Count]['title'];
         $('.examType2 .questionContent audio source').attr('src', fileName);
+        console.log($('.examType2 .questionContent audio source').attr('src'));
+        $('.examType2 .questionContent audio')[0].load();
         $('.examType2 .answerContent').html('');
         var howMany = parseInt(exam['type2'][type2Count]['howMany']);
         var p = document.createElement('p');
