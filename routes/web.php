@@ -45,9 +45,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['check.login']], function() 
     Route::post('questions/edit/{id}', 'Admin\QuestionController@update');
     Route::get('questions/del/{id}', 'Admin\QuestionController@del');
 
-    Route::get('result', function() {
-        return view('admin.result.index');
-    });
+    Route::get('result', 'Admin\ResultController@lists');
 
     Route::get('logout', 'Admin\UserController@logout');
 });

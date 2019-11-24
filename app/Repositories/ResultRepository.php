@@ -100,4 +100,37 @@ class ResultRepository
 
         return $result;
     }
+
+    public function lists($params) {
+        $result = [
+            'result' => true,
+            'msg' => 'success',
+            'data' => [],
+            'amount' => 0,
+        ];
+        $nowPage = isset($params['nowPage']) ? $params['nowPage'] : 1;
+        $offset = isset($params['offset']) ? $params['offset'] : 10;
+        $result['nowPage'] = $nowPage;
+        $result['offset'] = $offset;
+        try {
+            $results = Result::orderBy('id')
+                ->skip(($nowPage-1) * $offset)
+                ->take($offset)
+                ->get();
+            if(count($results) > 0) {
+                $result['data'] = $results->toArray();
+                $result['amount'] = $this->listsAmount($params);
+            }
+        }
+        catch(Exception $e) {
+            $result['result'] = false;
+            $result['msg'] = $e->getMessage();
+        }
+
+        return $result;
+    }
+
+    public function listsAmount($params) {
+        return Result::count();
+    }
 }
