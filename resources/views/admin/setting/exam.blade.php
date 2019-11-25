@@ -42,7 +42,6 @@
                         <label> <input type="checkbox" /> 開啟成績分析頁面 </label>
                     </div>
                 </div>
--->
                 <div>
                     <span class="col-xs-3">查詢頁面顯示筆數</span>
                     <div class="col-xs-9">
@@ -55,6 +54,7 @@
                         </select>
                     </div>
                 </div>
+-->
                 <div>
                     <span class="col-xs-12">請輸入欲呈現的測驗完成頁面的文字內容</span>
                     <div class="col-xs-12">

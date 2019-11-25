@@ -95,7 +95,7 @@ class SystemsRepository
 
             $perPage = Systems::where('name', '=', 'perPage')
                 ->first();
-            $perPage->value = isset($params['perPage']) ? 'Y' : 'N';
+            $perPage->value = isset($params['perPage']) ? $params['perPage'] : '10';
             $perPage->save();
 
             $finishText = Systems::where('name', '=', 'finishText')
