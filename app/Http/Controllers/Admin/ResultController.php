@@ -23,10 +23,12 @@ class ResultController extends Controller
     public function detail(Request $request, $resultId) {
         $result = [
             'result' => true,
+            'data' => [],
             'msg' => 'success',
         ];
         $resultRepository = new ResultRepository();
-        $result['data'] = $resultRepository->detailList($resultId);
+        $result['data'] = $resultRepository->getById($resultId);
+        $result['detailList'] = $resultRepository->detailList($resultId);
         return view('admin.result.detail', $result);
     }
 }

@@ -137,6 +137,18 @@ class ResultRepository
         return Result::count();
     }
 
+    public function getById($resultId) {
+        $results = Result::where('id', '=', $resultId)
+            ->first();
+        if(isset($results->id)) {
+            $data = $results->toArray();
+            if($data['birthday'] == '1970-01-01 00:00:00')
+                $data['birthday'] = '';
+            return $data;
+        }
+        return [];
+    }
+
     public function detailList($resultId) {
         $result = [
             'details' => [],
