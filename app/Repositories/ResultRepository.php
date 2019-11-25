@@ -113,12 +113,15 @@ class ResultRepository
         $result['nowPage'] = $nowPage;
         $result['offset'] = $offset;
         try {
-            $results = Result::orderBy('id')
+            $results = Result::orderBy('id', 'desc')
                 ->skip(($nowPage-1) * $offset)
                 ->take($offset)
                 ->get();
             if(count($results) > 0) {
                 $result['data'] = $results->toArray();
+                foreach($result['data'] as $i => $item) {
+                    $result['data'][$i]['detailList'] = $this->detailList($item['id']);
+                }
                 $result['amount'] = $this->listsAmount($params);
             }
         }
@@ -132,5 +135,49 @@ class ResultRepository
 
     public function listsAmount($params) {
         return Result::count();
+    }
+
+    public function detailList($resultId) {
+        $result = [
+            'details' => [],
+            'type1YesSum' => 0,
+            'type1NoSum' => 0,
+            'type1YesScore' => 0,
+            'type1NoScore' => 0,
+            'type2YesSum' => 0,
+            'type2NoSum' => 0,
+            'type2YesScore' => 0,
+            'type2NoScore' => 0,
+        ];
+        $details = ResultDetail::join('Questions', 'Questions.id', '=', 'ResultDetail.questionId')
+            ->where('resultId', '=', $resultId)
+            ->select(['ResultDetail.*', 'Questions.type'])
+            ->get();
+        if(count($details) > 0) {
+            $result['details'] = $details->toArray();
+            foreach($result['details'] as $detail) {
+                switch($detail['type']) {
+                case 1:
+                    if($detail['isCorrect'] == 1) {
+                        $result['type1YesSum'] += 1;
+                        $result['type1YesScore'] += 10;
+                    } else {
+                        $result['type1NoSum'] += 1;
+                        $result['type1NoScore'] += 10;
+                    }
+                    break;
+                case 2:
+                    if($detail['isCorrect'] == 1) {
+                        $result['type2YesSum'] += 1;
+                        $result['type2YesScore'] += 10;
+                    } else {
+                        $result['type2NoSum'] += 1;
+                        $result['type2NoScore'] += 10;
+                    }
+                    break;
+                }
+            }
+        }
+        return $result;
     }
 }

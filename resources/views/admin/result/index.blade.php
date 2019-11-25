@@ -85,13 +85,13 @@
 <!--
                         <td rowspan="1">測驗時間</td>
 -->
-                        <td rowspan="1">答對題數</td>
-                        <td rowspan="1">成績</td>
+                        <td rowspan="1">{{ $item['detailList']['type2YesSum'] }}</td>
+                        <td rowspan="1">{{ $item['detailList']['type2YesScore'] }}</td>
 <!--
                         <td rowspan="2">最高學歷</td>
                         <td rowspan="2">（應徵）職務</td>
 -->
-                        <td rowspan="2"><!--<a href="#">查看</a>--></td>
+                        <td rowspan="2"><a href="/admin/detail/{{ $item['id'] }}">查看</a></td>
                         <td rowspan="2"><input type="checkbox" /></td>
                     </tr>
                     <tr>
@@ -99,8 +99,8 @@
 <!--
                         <td rowspan="1">測驗時間</td>
 -->
-                        <td rowspan="1">答對題數</td>
-                        <td rowspan="1">成績</td>
+                        <td rowspan="1">{{ $item['detailList']['type1YesSum'] }}</td>
+                        <td rowspan="1">{{ $item['detailList']['type1YesScore'] }}</td>
                     </tr>
                 @endforeach
                 </tbody>
