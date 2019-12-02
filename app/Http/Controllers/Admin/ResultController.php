@@ -32,10 +32,17 @@ class ResultController extends Controller
         return view('admin.result.detail', $result);
     }
 
-    public function export(Request $request) {
+    public function excelExport(Request $request) {
         $params = $request->all();
         $resultRepository = new ResultRepository();
         $result = $resultRepository->export($params);
+        return $result;
+    }
+
+    public function pdfExport(Request $request) {
+        $params = $request->all();
+        $resultRepository = new ResultRepository();
+        $result = $resultRepository->exportPDF($params);
         return $result;
     }
 }

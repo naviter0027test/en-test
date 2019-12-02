@@ -9,3 +9,4 @@ Homestead.yaml
 composer.phar
 *.swp
 /public/uploads
+/storage/fonts

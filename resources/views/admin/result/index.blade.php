@@ -51,9 +51,8 @@
     <!--
                     <button>查詢</button>
 -->
-                </p>
-                <p class="col-xs-12 searchBtn">
-                    <button id="export">匯出</button>
+                    <button id="exportExcel">Excel匯出</button>
+                    <button id="exportPDF">PDF匯出</button>
                 </p>
             </form>
             <table class="contentTable2">

@@ -6,6 +6,7 @@ use App\Questions;
 use App\Result;
 use App\ResultDetail;
 use Excel;
+use PDF;
 
 class ResultRepository
 {
@@ -217,11 +218,17 @@ class ResultRepository
             ];
             array_push($exportArr, $row);
         }
-        $xls = Excel::create('score', function($excel) use ($exportArr) {
+        $xls = Excel::create('scoreExcel', function($excel) use ($exportArr) {
             $excel->sheet('score', function($sheet) use ($exportArr) {
                 $sheet->rows($exportArr);
             });
         });
         return $xls->export('xls');
+    }
+
+    public function exportPDF($params) {
+        $result = $this->lists($params);
+        $pdf = PDF::loadView('admin.result.pdfScore', $result);
+        return $pdf->download('pdfScore.pdf');
     }
 }
