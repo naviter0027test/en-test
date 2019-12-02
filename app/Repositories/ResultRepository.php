@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Questions;
 use App\Result;
 use App\ResultDetail;
+use Excel;
 
 class ResultRepository
 {
@@ -191,5 +192,36 @@ class ResultRepository
             }
         }
         return $result;
+    }
+
+    public function export($params) {
+        $colNamesArr = [
+            '中文姓名',
+            '英文姓名',
+            '答題總數',
+            '總分',
+            '聽力成績',
+            '閱讀成績',
+        ];
+        $result = $this->lists($params);
+        $exportArr = [];
+        array_push($exportArr, $colNamesArr);
+        foreach($result['data'] as $res) {
+            $row = [
+                $res['nameCh'],
+                $res['nameEn'],
+                $res['sum'],
+                $res['score'],
+                $res['detailList']['type2YesScore'],
+                $res['detailList']['type1YesScore'],
+            ];
+            array_push($exportArr, $row);
+        }
+        $xls = Excel::create('score', function($excel) use ($exportArr) {
+            $excel->sheet('score', function($sheet) use ($exportArr) {
+                $sheet->rows($exportArr);
+            });
+        });
+        return $xls->export('xls');
     }
 }

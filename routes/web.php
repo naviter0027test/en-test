@@ -46,6 +46,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['check.login']], function() 
     Route::get('questions/del/{id}', 'Admin\QuestionController@del');
 
     Route::get('result', 'Admin\ResultController@lists');
+    Route::get('result/export', 'Admin\ResultController@export');
     Route::get('detail/{id}', 'Admin\ResultController@detail');
 
     Route::get('logout', 'Admin\UserController@logout');

@@ -52,6 +52,9 @@
                     <button>查詢</button>
 -->
                 </p>
+                <p class="col-xs-12 searchBtn">
+                    <button id="export">匯出</button>
+                </p>
             </form>
             <table class="contentTable2">
                 <thead>
@@ -120,4 +123,5 @@
         </div>
     </body>
     <script src="/lib/jquery-2.1.4.min.js"></script>
+    <script src="/js/admin/result/index.js"></script>
 </html>

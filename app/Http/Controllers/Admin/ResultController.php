@@ -31,4 +31,11 @@ class ResultController extends Controller
         $result['detailList'] = $resultRepository->detailList($resultId);
         return view('admin.result.detail', $result);
     }
+
+    public function export(Request $request) {
+        $params = $request->all();
+        $resultRepository = new ResultRepository();
+        $result = $resultRepository->export($params);
+        return $result;
+    }
 }
