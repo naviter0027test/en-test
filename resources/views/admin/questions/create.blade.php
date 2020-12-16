@@ -22,7 +22,9 @@
             <div class="col-xs-12">
                 <h4>試題分類</h4>
                 <label class="col-xs-3"><input type="radio" name="typeChoose" value="1" />筆試</label>
+<!--
                 <label class="col-xs-3"><input type="radio" name="typeChoose" value="2" />英聽</label>
+-->
             </div>
             <form method="post" action="/admin/questions/create" class="contentForm1 type1">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />

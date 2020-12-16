@@ -79,30 +79,15 @@
                 <tbody>
                 @foreach($data as $item)
                     <tr>
-                        <td rowspan="2">{{ $item['id'] }}</td>
-                        <td rowspan="2">{{ $item['nameCh'] }}/{{ $item['nameEn'] }}</td>
-                        <td rowspan="2">{{ $item['sum'] }}</td>
-                        <td rowspan="2">{{ $item['score'] }}</td>
-                        <td rowspan="1">聽力</td>
-<!--
-                        <td rowspan="1">測驗時間</td>
--->
-                        <td rowspan="1">{{ $item['detailList']['type2YesSum'] }}</td>
-                        <td rowspan="1">{{ $item['detailList']['type2YesScore'] }}</td>
-<!--
-                        <td rowspan="2">最高學歷</td>
-                        <td rowspan="2">（應徵）職務</td>
--->
-                        <td rowspan="2"><a href="/admin/detail/{{ $item['id'] }}">查看</a></td>
-                        <td rowspan="2"><input type="checkbox" /></td>
-                    </tr>
-                    <tr>
-                        <td rowspan="1">閱讀</td>
-<!--
-                        <td rowspan="1">測驗時間</td>
--->
-                        <td rowspan="1">{{ $item['detailList']['type1YesSum'] }}</td>
-                        <td rowspan="1">{{ $item['detailList']['type1YesScore'] }}</td>
+                        <td>{{ $item['id'] }}</td>
+                        <td>{{ $item['nameCh'] }}/{{ $item['nameEn'] }}</td>
+                        <td>{{ $item['sum'] }}</td>
+                        <td>{{ $item['score'] }}</td>
+                        <td>閱讀</td>
+                        <td>{{ $item['detailList']['type1YesSum'] }}</td>
+                        <td>{{ $item['detailList']['type1YesScore'] }}</td>
+                        <td><a href="/admin/detail/{{ $item['id'] }}">查看</a></td>
+                        <td><input type="checkbox" /></td>
                     </tr>
                 @endforeach
                 </tbody>

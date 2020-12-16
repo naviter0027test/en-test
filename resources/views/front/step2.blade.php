@@ -43,6 +43,7 @@
                 </div>
             </div>
 
+<!--
             <div class="examType2">
                 <h2 class="contentH2">英聽</h2>
                 <div class="questionContent">
@@ -63,6 +64,7 @@
                     <button>下一題</button>
                 </div>
             </div>
+-->
 
         </div>
     </body>

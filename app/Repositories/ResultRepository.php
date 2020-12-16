@@ -28,7 +28,7 @@ class ResultRepository
             $results->email = isset($params['email']) ? $params['email'] : '';
             $results->departmentCode = isset($params['departmentCode']) ? $params['departmentCode'] : '';
             $results->staffId = isset($params['staffId']) ? $params['staffId'] : '';
-            $results->sum = count($params['exam']['type1']) + count($params['exam']['type2']);
+            $results->sum = count($params['exam']['type1']); // + count($params['exam']['type2']);
 
             $detailResults = $this->detailCreate($params['exam']);
             $results->yesSum = $detailResults['yesSum'];
@@ -79,6 +79,7 @@ class ResultRepository
             }
         }
 
+        /*
         foreach($exam['type2'] as $typeExam) {
             $detail = new ResultDetail();
             $question = Questions::where('id', '=', $typeExam['id'])
@@ -99,6 +100,7 @@ class ResultRepository
                 array_push($result['details'], $detail);
             }
         }
+         */
 
         return $result;
     }
