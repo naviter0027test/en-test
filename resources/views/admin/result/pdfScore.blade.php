@@ -8,7 +8,7 @@
             font-family: 'wt024';
             font-style: normal;
             font-weight: normal;
-            src: url({{ storage_path('font/wt024.ttf') }}) format('truetype');
+            src: url({{ storage_path('fonts/wt024.ttf') }}) format('truetype');
         }
         body {
             font-family: wt024, DejaVu Sans,sans-serif;
